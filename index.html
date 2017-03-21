@@ -1,0 +1,1116 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Eric Zhang UI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- default css files to reset the HTML document to default behaviour and plugins css -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="css/bootstrap-modal.css">
+        <link rel="stylesheet" href="css/jquery.contextMenu.css">
+
+        <!-- custom css files -->
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- library to detect users browser features -->
+        <script src="js/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+    <!--Start Splash Screen Area -->
+    <div class="wrapper home-bg splashScreenContainer">
+        <div class="container">
+        <div class="spashScreen">
+            <h1>Codex Markets ...</h1>
+            <div class="logo-container">
+                <img src="images/logo.png" alt=""/><span>an ocean of possibility </span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--End Splash Screen Area -->
+
+    <!-- Start views -->
+    <div class="container views hide">
+        <!--Start header navigation buttons -->
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">file</a>
+                        <ul>
+                            <li><a href="javascript:void(0)">Save Layout</a></li>
+                            <li><a href="javascript:void(0)">Save Layout As</a></li>
+                            <li><a href="javascript:void(0)">Import Layout</a></li>
+                            <li><a href="javascript:void(0)">Print</a></li>
+                            <li><a href="javascript:void(0)">Exit</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Filters</a>
+                        <ul>
+                            <li><a href="javascript:void(0)">Add Client Filter</a></li>
+                            <li><a href="javascript:void(0)">Add Symbol Filter</a></li>
+                            <li><a href="javascript:void(0)">Add Engine Filter</a></li>
+                            <li><a href="javascript:void(0)">Order State ></a>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Open</a></li>
+                                    <li><a href="javascript:void(0)">Filled</a></li>
+                                    <li><a href="javascript:void(0)">Pending New</a></li>
+                                    <li><a href="javascript:void(0)">Pending Cancel</a></li>
+                                    <li><a href="javascript:void(0)">Unacknowledged</a></li>
+                                    <li><a href="javascript:void(0)">Rejected</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-toggle="modal" data-target="#manageFiltersModal">Manage Filters</a></li>
+                            <li><a href="javascript:void(0)">Import Filters</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Views</a>
+                        <ul>
+                            <li><a href="javascript:void(0)" class="showView activeViewLink" data-view="matchingEngineView">Matching Engine</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="accountView">Account</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="sessionView">Session</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="generalSymbolView">General Symbol</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="symbolBookView">Symbol Book</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="cancel">
+                <a href="" class="btn-grey">Exit</a>
+            </div>
+
+        </header>
+        <!--End header navigation buttons -->
+
+        <!--Start Matching Engine View and Table-->
+        <div class="table-content matchingEngineView activeView">
+            <div class="heading">
+                <h2>Matching Engine View</h2>
+            </div>
+            <table id="matchEngineTable" class="tableStyle tblDataTable">
+                <thead>
+                    <tr>
+                        <th>engine</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>rate</th>
+                        <th>pending new</th>
+                        <th>pending cxl</th>
+                        <th>fills</th>
+                        <th>shares</th>
+                        <th>Notional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Matching Engine View and Table-->
+
+        <!--Start Account View and Table-->
+        <div class="table-content accountView hide">
+            <div class="heading">
+                <h2>Account View</h2>
+            </div>
+            <table id="accountTable" class="tableStyle tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>open exposures</th>
+                        <th>shares executed</th>
+                        <th>Notional executed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                    <tr class="accountContext">
+                        <td>lorem ipsum</td>
+                        <td>22</td>
+                        <td>34</td>
+                        <td>0.33</td>
+                        <td>34</td>
+                        <td>34</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Account View and Table-->
+
+        <!--Start Session View and Table-->
+        <div class="table-content sessionView hide">
+            <div class="heading">
+                <h2>Session View</h2>
+            </div>
+            <table id="sessionTable" class="tableStyle tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Status</th>
+                        <th>IP</th>
+                        <th>Port</th>
+                        <th>TargetCompID</th>
+                        <th>SenderCompID</th>
+                        <th>Server</th>
+                        <th>LastUpdate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>P72</td>
+                        <td>Connected</td>
+                        <td>192.168.1.1</td>
+                        <td>55601</td>
+                        <td>POINT72CDX</td>
+                        <td>CDXP72</td>
+                        <td>10.10.10.10:10501</td>
+                        <td>8:00:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Session View and Table-->
+
+        <!--Start General Symbol View and Table-->
+        <div class="table-content generalSymbolView hide">
+            <div class="heading">
+                <h2>General Symbol View</h2>
+            </div>
+            <table id="generalSymbolTable" class="tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Symbol</th>
+                        <th>State</th>
+                        <th>Side</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>GOOG</td>
+                        <td>Open</td>
+                        <td>B</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End General Symbol View and Table-->
+
+        <!--Start Symbol Book View and Table-->
+        <div class="table-content symbolBookView hide">
+            <div class="heading">
+                <h2>Symbol Book View</h2>
+            </div>
+            <p>Sell</p>
+            <table id="symbolBookTableA" class="tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </thead>
+                <tbody>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="buyP">Buy</p>
+            <table id="symbolBookTableA" class="tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </thead>
+                <tbody>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr class="symbolContext">
+                        <td>1</td>
+                        <td>09:30:04.345678</td>
+                        <td>418</td>
+                        <td>41287</td>
+                        <td>820</td>
+                        <td>P72</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Symbol Book View and Table-->
+
+    </div>
+    <!-- End views -->
+
+    <!-- start manage filters modal -->
+    <div class="modal fade" id="manageFiltersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-header">
+            
+            <h4 class="modal-title" id="myModalLabel">Manage Filters</h4>
+          </div>
+          <div class="modal-body">
+        <span>show order where</span>
+        <div class="btnHold">
+            <button class="btn-grey" data-toggle="modal" data-target="#addSimpleFilterModal">add simple filter</button>
+            <button class="btn-grey">add custom filter</button>
+        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-grey pull-left">create filter</button> &nbsp
+            <button type="button" class="btn-grey pull-right">reset filter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End manage filters modal -->
+
+    <!--Start add simple filters modal -->
+    <div class="modal fade" id="addSimpleFilterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="myModalLabel">add new simple filter</h4>
+                </div>
+                <div class="modal-body">
+                    <span>show order where</span>
+                    <div class="form">
+                        <form>
+                            <label>client</label>
+                            <div class="inputHold">
+                                <select>
+                                    <option>relational operator</option>
+                                </select>
+                            </div>
+                            <div class="inputHold">
+                                <input type="text">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-grey pull-left">create filter</button>
+                    <button type="button" class="btn-grey pull-right">reset filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End add simple filters modal -->
+
+    <!-- Start Charting Modal -->
+
+    <div class="modal fade modal-xl" id="chartingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <div class="modal-header">
+                
+              </div>
+              <div class="modal-body table-div">
+                <p class="line"><span>Viking</span></p>
+                <div class="table col-1">
+
+                    <div class="cell">
+                        <label>Vertical Axis</label>
+                        <select>
+                            <option>options</option>
+                        </select>
+                    </div>
+                    <div class="cell lineChart" id="lineChart" style="display:none;">
+                        
+                    </div>
+                    <div class="cell barChart" id="barChart" style="display:none;">
+                        
+                    </div>
+                    <div class="cell">
+                        <label>Vertical Axis</label>
+                        <select>
+                            <option>options</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                
+              </div> 
+          </div>
+    </div>
+
+    <!-- End Charting Modal -->
+
+    <!-- Start View Details Modal -->
+
+    <div class="modal fade modal-xl" id="viewDetailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                    <div class="row30">
+                        <div class="col-6 rightBrdr">
+                            <div class="greenBox">
+                                <div class="tableCell">
+                                    Account: CLIENT1 <br>
+                                    Order id: 123456<br>
+                                    Percent Complete: 20%<br>
+                                </div>
+                                <div class="tableBorder">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 leftBrdr padding-default">
+                            <div class="tableBorder">
+                                <table>
+                                    <thead>
+                                        <tr><td>order ID</td><td>123456</td></tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    <!-- End View Details Modal -->
+
+    <!-- Start Rejection Modal -->
+
+    <div class="modal fade modal-small" id="rejectionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <p class="line"><span>Reject</span> by <span>Client</span></label>
+                    <div class="form">
+                        <form>
+                            <div class="">
+                                 <select>
+                                     <option>relational operator</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-grey pull-left">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Rejection Modal -->
+
+    <!-- <div id="lineChart" class="lineChart">
+        
+    </div>
+
+    <div id="barChart" class="barChart">
+        
+    </div> -->
+
+    <!-- External js files -->
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.position.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var app = new App();
+
+        });
+    </script>
+    </body>
+</html>
