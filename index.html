@@ -110,6 +110,19 @@
                         <th>Notional</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>engine</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>rate</th>
+                        <th>pending new</th>
+                        <th>pending cxl</th>
+                        <th>fills</th>
+                        <th>shares</th>
+                        <th>Notional</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <tr>
                         <td>lorem ipsum</td>
@@ -264,6 +277,16 @@
                         <th>Notional executed</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Account</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>open exposures</th>
+                        <th>shares executed</th>
+                        <th>Notional executed</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <tr class="accountContext">
                         <td>lorem ipsum</td>
@@ -392,6 +415,18 @@
                         <th>LastUpdate</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Status</th>
+                        <th>IP</th>
+                        <th>Port</th>
+                        <th>TargetCompID</th>
+                        <th>SenderCompID</th>
+                        <th>Server</th>
+                        <th>LastUpdate</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <tr>
                         <td>P72</td>
@@ -528,6 +563,20 @@
                         <th>MinQuantity</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Symbol</th>
+                        <th>State</th>
+                        <th>Side</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <tr class="symbolContext">
                         <td>1</td>
@@ -719,6 +768,16 @@
                         <th>Account</th>
                         <th>MinQuantity</th>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </tfoot>
                 <tbody>
                     <tr class="symbolContext">
                         <td>1</td>
@@ -797,6 +856,16 @@
                         <th>Account</th>
                         <th>MinQuantity</th>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </tfoot>
                 <tbody>
                     <tr class="symbolContext">
                         <td>1</td>
@@ -878,17 +947,36 @@
             
             <h4 class="modal-title" id="myModalLabel">Manage Filters</h4>
           </div>
+          <form>
           <div class="modal-body">
         <span>show order where</span>
         <div class="btnHold">
             <button class="btn-grey" data-toggle="modal" data-target="#addSimpleFilterModal">add simple filter</button>
             <button class="btn-grey">add custom filter</button>
         </div>
+        
+        <div class="tbleHold">
+            <table border="collapse" width="100%">
+                <tbody>
+                    <tr>
+                        <td width="80%"><input class="table-hedsmll" value=""></td>
+                        <td width="10%"><a href="#">edit</a></td>
+                        <td width="10%"><a href="#">delete</a></td>
+                    </tr>
+                    <tr>
+                        <td width="80%"><input class="table-hedsmll" value=""></td>
+                        <td width="10%"><a href="#">edit</a></td>
+                        <td width="10%"><a href="#">delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn-grey pull-left">create filter</button> &nbsp
-            <button type="button" class="btn-grey pull-right">reset filter</button>
+            <button type="reset" class="btn-grey pull-right">reset filter</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -903,10 +991,11 @@
 
                     <h4 class="modal-title" id="myModalLabel">add new simple filter</h4>
                 </div>
+                <form>
                 <div class="modal-body">
                     <span>show order where</span>
                     <div class="form">
-                        <form>
+                        
                             <label>client</label>
                             <div class="inputHold">
                                 <select>
@@ -916,13 +1005,14 @@
                             <div class="inputHold">
                                 <input type="text">
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-grey pull-left">create filter</button>
-                    <button type="button" class="btn-grey pull-right">reset filter</button>
+                    <button type="reset" class="btn-grey pull-right">reset filter</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

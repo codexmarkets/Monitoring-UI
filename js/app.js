@@ -1,13 +1,14 @@
 (function ($) {
 
 	var eventsAdded = false,
-
+		lastSelectedRow = '',
+		splashScreenTimeout,
 	//function to hide splash Screen
 	hideSplashScreen = function(){
 
-		setTimeout(function(){
-			$('.splashScreenContainer').fadeOut(1500, function(){
-				$('.views').fadeIn(1500);
+		splashScreenTimeout = setTimeout(function(){
+			$('.splashScreenContainer').fadeOut(1000, function(){
+				$('.views').fadeIn(1000);
 			});
 
 		},3500);
@@ -100,15 +101,34 @@
 	createDataTables = function(){
 
 		$('.tblDataTable').each(function(){
+
+			$(this).find('tfoot th').each( function () {
+		        var title = $(this).text();
+		        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    		});	
+
 			$(this).DataTable({
-		        searching: true,
+		        searching: false,
 		   		paging: true,
 		   		bInfo : false,
 		   		pageLength: 1000,
 		   		lengthChange: false,
-		   		order: [[ 0, "desc" ]]
+		   		order: [[ 0, "desc" ]],
+	   		}).columns().every( function () {
+			        
+			        var that = this;
+			 
+			        $( 'input', this.footer() ).on( 'keyup change', function () {
+			            if ( that.search() !== this.value ) {
+			                that
+			                    .search( this.value )
+			                    .draw();
+			            }
+			        });
     		});
+
     		$(this).wrap("<div class='scrolledTable'></div>");
+    		
     	});
 
 	},
@@ -190,11 +210,71 @@
 				}).removeClass('activeView');
 				$('.activeViewLink').removeClass('activeViewLink');
 				ele.addClass('activeViewLink');
+				$('.selected').removeClass('selected');
 			}
 
 		});
 
-	};
+		//datatable selection events with shift and ctrl conditions
+		$('.tblDataTable tbody').on( 'click contextmenu', 'tr', function (event) {
+
+			if ( $(this).hasClass('selected') ) {
+
+            	$(this).removeClass('selected');
+        		lastSelectedRow = '';
+
+        	}else {
+        	
+        		if(event.ctrlKey) {
+
+    				$(this).addClass('selected');
+    				lastSelectedRow = $(this).index();
+
+				}else if(event.shiftKey) {
+					
+					var currentIndex = $(this).index(),
+					indexes = [currentIndex , lastSelectedRow];
+					
+				    indexes.sort(function(a, b) {
+				        return a - b;
+				    });
+			    	
+				    for (var i = indexes[0]; i <= indexes[1]; i++) {
+				    	$(this).parents('table').find('tr').eq(i).addClass('selected');
+				    }
+					
+					$(this).addClass('selected');
+
+					lastSelectedRow = $(this).index();
+
+				}else{
+
+					$(this).parents('table').find('tr.selected').removeClass('selected');
+	            	$(this).addClass('selected');
+	            	lastSelectedRow = $(this).index();
+
+				}
+	        
+	        }
+
+        });
+
+        //splash screen close on click event
+        $('body').on('click' , '.splashScreenContainer' , function(){
+
+        	clearTimeout(splashScreenTimeout);
+			$('.splashScreenContainer').fadeOut(1000, function(){
+				$('.views').fadeIn(1000);
+			});
+
+        });
+
+        //modal close reset event
+        $('.modal').on('hidden', function () {
+        	$(this).find('[type="reset"]').trigger('click');
+		});
+
+    };
 
 	//App class declaration
 	App = function (options) {

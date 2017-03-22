@@ -336,3 +336,16 @@ td, th {
     float:left;
     margin-bottom: 15px;
 }
+
+.tblDataTable tfoot {
+    display: table-header-group;
+}
+
+.tblDataTable tfoot th{
+   padding : 5px 3px !important;
+}
+
+.tblDataTable tfoot input {
+    width: 100%;
+    font-size: 10px;
+}
