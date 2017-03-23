@@ -349,3 +349,24 @@ td, th {
     width: 100%;
     font-size: 10px;
 }
+
+.dataTables_filter{
+    display: none;
+}
+
+.tblDataTable thead{
+    position: -webkit-sticky;
+position: -moz-sticky;
+position: -ms-sticky;
+position: -o-sticky;
+position: sticky;
+top: 0;
+}
+
+.tblDataTable tfoot{
+    position: -webkit-sticky;
+position: -moz-sticky;
+position: -ms-sticky;
+position: -o-sticky;
+position: sticky;
+}

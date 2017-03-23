@@ -108,17 +108,20 @@
     		});	
 
 			$(this).DataTable({
-		        searching: false,
+		        searching: true,
 		   		paging: true,
 		   		bInfo : false,
 		   		pageLength: 1000,
 		   		lengthChange: false,
-		   		order: [[ 0, "desc" ]],
+		   		order: [[ 0, "desc" ]]
 	   		}).columns().every( function () {
 			        
 			        var that = this;
 			 
 			        $( 'input', this.footer() ).on( 'keyup change', function () {
+			        	console.log('asd');
+			        	console.log(this.value);
+			        	console.log(that.search());
 			            if ( that.search() !== this.value ) {
 			                that
 			                    .search( this.value )
@@ -128,7 +131,7 @@
     		});
 
     		$(this).wrap("<div class='scrolledTable'></div>");
-    		
+    		$(this).find('tfoot').css('top' , $(this).find('thead th').innerHeight() );
     	});
 
 	},
