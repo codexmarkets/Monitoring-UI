@@ -1,4 +1,7 @@
 # Muzammil-UI
+## Mockup
+Created using Moqups. See [here](https://app.moqups.com/eric.zhang@codexmarkets.com/zupVa4SkbR/edit/page/aeec2069f).
+## Guide to files
 The main working files of the project are 
 index.html
 custom.css
