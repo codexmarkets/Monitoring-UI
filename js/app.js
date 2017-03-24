@@ -129,18 +129,13 @@
 			
 			$(this).wrap("<div class='scrolledTable'></div>");
 			
-			/*document.getElementsByClassName("scrolledTable").addEventListener("scroll", function(){
-			   var translate = "translate(0,"+this.scrollTop+"px)";
-			   this.querySelector("thead tfoot").style.transform = translate;
-			});*/
-
 			$('.scrolledTable').on('scroll' , function(){
 				if(this.scrollTop > 0){
 					var translate = "translate(0,"+(this.scrollTop-1) +"px)";
 				}else{
 					var translate = "translate(0, 0px)";
 				}
-				console.log(translate);
+				
 				$(this).find('thead,tfoot').css({
 					'-ms-transform' : translate,
 					'-webkit-transform' : translate,
@@ -258,7 +253,7 @@
 				    indexes.sort(function(a, b) {
 				        return a - b;
 				    });
-		    		console.log(indexes);
+		    		
 				    for (var i = indexes[0]; i <= indexes[1]; i++) {
 				    	$(this).parents('tbody').find('tr').eq(i).addClass('selected');
 				    }
