@@ -107,32 +107,49 @@
 		        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
     		});	
 
-			$(this).DataTable({
+			var newDataTable = $(this).DataTable({
 		        searching: true,
 		   		paging: true,
 		   		bInfo : false,
 		   		pageLength: 1000,
 		   		lengthChange: false,
 		   		order: [[ 0, "desc" ]]
-	   		}).columns().every( function () {
+		   	}).columns().every( function () {
 			        
 			        var that = this;
 			 
 			        $( 'input', this.footer() ).on( 'keyup change', function () {
-			        	console.log('asd');
-			        	console.log(this.value);
-			        	console.log(that.search());
-			            if ( that.search() !== this.value ) {
+			        	if ( that.search() !== this.value ) {
 			                that
 			                    .search( this.value )
 			                    .draw();
 			            }
 			        });
     		});
+			
+			$(this).wrap("<div class='scrolledTable'></div>");
+			
+			/*document.getElementsByClassName("scrolledTable").addEventListener("scroll", function(){
+			   var translate = "translate(0,"+this.scrollTop+"px)";
+			   this.querySelector("thead tfoot").style.transform = translate;
+			});*/
 
-    		$(this).wrap("<div class='scrolledTable'></div>");
-    		$(this).find('tfoot').css('top' , $(this).find('thead th').innerHeight() );
-    	});
+			$('.scrolledTable').on('scroll' , function(){
+				if(this.scrollTop > 0){
+					var translate = "translate(0,"+(this.scrollTop-1) +"px)";
+				}else{
+					var translate = "translate(0, 0px)";
+				}
+				console.log(translate);
+				$(this).find('thead,tfoot').css({
+					'-ms-transform' : translate,
+					'-webkit-transform' : translate,
+					'-webkit-transform' : translate,
+					'transform' : translate
+				});
+			});
+
+		});
 
 	},
 
@@ -241,9 +258,9 @@
 				    indexes.sort(function(a, b) {
 				        return a - b;
 				    });
-			    	
+		    		console.log(indexes);
 				    for (var i = indexes[0]; i <= indexes[1]; i++) {
-				    	$(this).parents('table').find('tr').eq(i).addClass('selected');
+				    	$(this).parents('tbody').find('tr').eq(i).addClass('selected');
 				    }
 					
 					$(this).addClass('selected');
