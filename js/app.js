@@ -100,51 +100,104 @@
 	//function to create Data tables
 	createDataTables = function(){
 
-		$('.tblDataTable').each(function(){
+		//Generate Engine Table
+		loadJSON('sel_Engine', '#matchEngineTable', '');
+		loadJSON('sel_Account', '#accountTable', 'accountContext');
+		loadJSON('sel_Session', '#accountTable', '');
+		loadJSON('sel_General_Symbol', '#generalSymbolTable', 'symbolContext');
+		loadJSON('sel_Symbol_Sell', '#symbolBookTableA', 'symbolContext');
+		loadJSON('sel_Symbol_Buy', '#symbolBookTableB', 'symbolContext');
+		
+		loadJSONforMini('sel_Order_Details', '#orderDetailTable');
+		loadJSONforMini('sel_Order_Details_2', '#orderDetailTable2');
 
-			$(this).find('tfoot th').each( function () {
-		        var title = $(this).text();
-		        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    		});	
-
-			var newDataTable = $(this).DataTable({
-		        searching: true,
-		   		paging: true,
-		   		bInfo : false,
-		   		pageLength: 1000,
-		   		lengthChange: false,
-		   		order: [[ 0, "desc" ]]
-		   	}).columns().every( function () {
-			        
-			        var that = this;
-			 
-			        $( 'input', this.footer() ).on( 'keyup change', function () {
-			        	if ( that.search() !== this.value ) {
-			                that
-			                    .search( this.value )
-			                    .draw();
-			            }
-			        });
-    		});
-			
-			$(this).wrap("<div class='scrolledTable'></div>");
-			
-			$('.scrolledTable').on('scroll' , function(){
-				if(this.scrollTop > 0){
-					var translate = "translate(0,"+(this.scrollTop-1) +"px)";
-				}else{
-					var translate = "translate(0, 0px)";
+		
+		function loadJSONforMini(endpoint, tableId) {
+			var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			$.ajax({
+				type: 'GET',
+				url: apiUrl + endpoint,
+			}).done(function(data) {
+				//generate html table from json
+				$tbody = $(tableId + ' tbody');
+				$tbody.empty();
+				for(i = 0; i < data.results[0].data[0].length; i ++) {
+					var html = '';
+					html += '<td>' + data.results[0].schema[i].name + '</td>';
+					html += '<td>' + data.results[0].data[0][i] + '</td>';
+					$tbody.append('<tr>' + html + '</tr>');
 				}
-				
-				$(this).find('thead,tfoot').css({
-					'-ms-transform' : translate,
-					'-webkit-transform' : translate,
-					'-webkit-transform' : translate,
-					'transform' : translate
-				});
 			});
+		}
 
-		});
+		function loadJSON(endpoint, tableId, trClassName) {
+			var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			$.ajax({
+				type: 'GET',
+				url: apiUrl + endpoint,
+			}).done(function(data) {
+				//generate html table from json
+				$tbody = $(tableId + ' tbody');
+				data.results[0].data.forEach(function(d) {
+					var html = '';
+					d.forEach(function(item) {
+						html += '<td>' + item + '</td>';
+					})
+					$tbody.append('<tr class="' + trClassName + '">' + html + '</tr>');
+				});
+				//generate data table;
+				generateDataTable(tableId);
+			});
+		}
+
+
+		function generateDataTable(tableId) {
+			$(tableId).each(function(){
+
+				$(this).find('tfoot th').each( function () {
+			        var title = $(this).text();
+			        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+	    		});	
+
+				var newDataTable = $(this).DataTable({
+			        searching: true,
+			   		paging: true,
+			   		bInfo : false,
+			   		pageLength: 1000,
+			   		lengthChange: false,
+			   		order: [[ 0, "desc" ]]
+			   	}).columns().every( function () {
+				        
+				        var that = this;
+				 
+				        $( 'input', this.footer() ).on( 'keyup change', function () {
+				        	if ( that.search() !== this.value ) {
+				                that
+				                    .search( this.value )
+				                    .draw();
+				            }
+				        });
+	    		});
+				
+				$(this).wrap("<div class='scrolledTable'></div>");
+				
+				$('.scrolledTable').on('scroll' , function(){
+					if(this.scrollTop > 0){
+						var translate = "translate(0,"+(this.scrollTop-1) +"px)";
+					}else{
+						var translate = "translate(0, 0px)";
+					}
+					
+					$(this).find('thead,tfoot').css({
+						'-ms-transform' : translate,
+						'-webkit-transform' : translate,
+						'-webkit-transform' : translate,
+						'transform' : translate
+					});
+				});
+
+			});
+		}
 
 	},
 
