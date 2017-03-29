@@ -103,7 +103,7 @@
 		//Generate Engine Table
 		loadJSON('sel_Engine', '#matchEngineTable', '');
 		loadJSON('sel_Account', '#accountTable', 'accountContext');
-		loadJSON('sel_Session', '#accountTable', '');
+		loadJSON('sel_Session', '#sessionTable', '');
 		loadJSON('sel_General_Symbol', '#generalSymbolTable', 'symbolContext');
 		loadJSON('sel_Symbol_Sell', '#symbolBookTableA', 'symbolContext');
 		loadJSON('sel_Symbol_Buy', '#symbolBookTableB', 'symbolContext');
@@ -113,7 +113,8 @@
 
 		
 		function loadJSONforMini(endpoint, tableId) {
-			var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			// var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			var apiUrl = 'http://localhost:8081/';
 			$.ajax({
 				type: 'GET',
 				url: apiUrl + endpoint,
@@ -131,11 +132,13 @@
 		}
 
 		function loadJSON(endpoint, tableId, trClassName) {
-			var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			// var apiUrl = 'http://ec2-54-173-35-84.compute-1.amazonaws.com:8081/';
+			var apiUrl = 'http://localhost:8081/';
 			$.ajax({
 				type: 'GET',
 				url: apiUrl + endpoint,
 			}).done(function(data) {
+				console.log(data);
 				//generate html table from json
 				$tbody = $(tableId + ' tbody');
 				data.results[0].data.forEach(function(d) {
