@@ -121,12 +121,6 @@
 			$('.tblDataTable').each(function () {
 				var $this = $(this);
 
-				function updateFooter() {
-					$this.find('tfoot th').each(function () {
-						var title = $(this).text();
-						$(this).html('<input type="text" placeholder="Search ' + title + '" />');
-					});
-				}
 				var newDataTable = $(this).DataTable({
 					searching: true,
 					paging: true,
@@ -141,26 +135,29 @@
 							$TRs.empty();
 							$(json.results[0].schema).each(function () {
 								$TRs.append($("<th>").text(this.name));
-							})
-							updateFooter()
+							});
 							return json.results[0].data
 						}
 					},
+					initComplete: function () {
+						var _api = this.api();
+						$('tfoot th', _api.table().node()).each(function () {
+							var title = $(this).text() || $('input',this).data('title');
+							$(this).html('<input data-title="' + title +'"type="text" placeholder="Search ' + title + '" />');
+						});
+						$(_api.table().node()).on('keyup change', 'input', function () {
+							console.log('EventCached');
+							if (_api.search() !== this.value) {
+								_api
+									.search(this.value)
+									.draw();
+							}
+						});
+
+					},
 					order: [[0, "desc"]]
 				})
-				updateFooter();
-				$this.DataTable().columns().every(function () {
 
-					var that = this;
-
-					$('input', this.footer()).on('keyup change', function () {
-						if (that.search() !== this.value) {
-							that
-								.search(this.value)
-								.draw();
-						}
-					});
-				});
 				$(this).wrap("<div class='scrolledTable'></div>");
 
 				$('.scrolledTable').on('scroll', function () {
