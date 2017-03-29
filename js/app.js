@@ -339,10 +339,10 @@
 		
 		
 		// 0.5s function 
-		setInterval(function(){ 
+		//setInterval(function(){ 
 				//Engine_Data_read();
-		}, 500);
-		
+		//}, 500);
+		EngineDataview();
 		hideSplashScreen();
 		createDataTables();
 		setAccountViewContext();
