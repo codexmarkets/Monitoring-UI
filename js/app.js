@@ -301,14 +301,19 @@
 	EngineDataview = function () {
 		// sel_Engine to data count
 		var row_count = sel_Engine.results[0].data.length;
-		
+		var table_str='';
 		// table td input data
 		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
 			for(var col=0;col<9;col++){
 				var str_val = sel_Engine.results[0].data[row][col];
-				$("table tbody tr").eq(row).children("td").eq(col).text(str_val);
+				table_str +="<td>" + str_val + "</td>";
 			}
+			table_str +="</tr>";			
 		}
+		$("table tbody tr").remove();
+		$( "table tbody" ).html( table_str );
+		
 	}
 	
 	//function to getJSON  sel_Engine results	
@@ -331,17 +336,17 @@
 	//App class declaration
 	App = function (options) {
 
+		
+		
+		// 0.5s function 
+		setInterval(function(){ 
+				//Engine_Data_read();
+		}, 500);
+		
 		hideSplashScreen();
 		createDataTables();
 		setAccountViewContext();
 		setSymbolViewContext();
-			
-			EngineDataview();
-			// 0.5s function 
-			setInterval(function(){ 
-				Engine_Data_read();
-			}, 500);
-
 			
 		
 		if (!eventsAdded) {
