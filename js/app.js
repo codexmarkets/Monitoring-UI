@@ -11,7 +11,7 @@
 				$('.views').fadeIn(1000);
 			});
 
-		},3500); 
+		},3500);
 	
 	},
 
@@ -311,8 +311,91 @@
 			}
 			table_str +="</tr>";			
 		}
-		$("table tbody tr").remove();
-		$( "table tbody" ).html( table_str );
+		$("table#matchEngineTable tbody tr").remove();
+		$("table#matchEngineTable tbody").html( table_str );
+		
+		// accounttable to data count
+		var row_count = sel_Account.results[0].data.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+			for(var col=0;col<6;col++){
+				var str_val = sel_Account.results[0].data[row][col];
+				table_str +="<td>" + str_val + "</td>";
+			}
+			table_str +="</tr>";			
+		}
+		$("table#accountTable tbody tr").remove();
+		$("table#accountTable tbody").html( table_str );
+		
+		// sel_Session to data count
+		var row_count = sel_Session.results[0].data.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+			for(var col=0;col<8;col++){
+				var str_val = sel_Session.results[0].data[row][col];
+				table_str +="<td>" + str_val + "</td>";
+			}
+			table_str +="</tr>";			
+		}
+		$("table#sessionTable tbody tr").remove();
+		$("table#sessionTable tbody").html( table_str );
+		
+		
+		// generalSymbolTable to data count
+		var row_count = sel_General_Symbol.results[0].data.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+			for(var col=0;col<10;col++){
+				var str_val = sel_General_Symbol.results[0].data[row][col];
+				table_str +="<td>" + str_val + "</td>";
+			}
+			table_str +="</tr>";			
+		}
+		$("table#generalSymbolTable tbody tr").remove();
+		$("table#generalSymbolTable tbody").html( table_str );
+		
+		
+		
+		// sel_Symbol_Sell to data count
+		var row_count = sel_Symbol_Sell.results[0].data.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+			for(var col=0;col<7;col++){
+				var str_val = sel_Symbol_Sell.results[0].data[row][col];
+				table_str +="<td>" + str_val + "</td>";
+			}
+			table_str +="</tr>";			
+		}
+		$("table.symbolBookTableAA tbody tr").remove();
+		$("table.symbolBookTableAA tbody").html( table_str );
+		
+		
+		
+		
+		// sel_Symbol_Buy to data count
+		var row_count = sel_Symbol_Buy.results[0].data.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+			for(var col=0;col<7;col++){
+				var str_val = sel_Symbol_Buy.results[0].data[row][col];
+				table_str +="<td>" + str_val + "</td>";
+			}
+			table_str +="</tr>";			
+		}
+		$("table.symbolBookTableBB tbody tr").remove();
+		$("table.symbolBookTableBB tbody").html( table_str );
+		
+		
 		
 	}
 	
@@ -336,13 +419,14 @@
 	//App class declaration
 	App = function (options) {
 
+		EngineDataview();
 		
 		
 		// 0.5s function 
 		//setInterval(function(){ 
 				//Engine_Data_read();
 		//}, 500);
-		EngineDataview();
+		
 		hideSplashScreen();
 		createDataTables();
 		setAccountViewContext();
