@@ -403,12 +403,76 @@
 	Engine_Data_read = function (){
 		$.getJSON("/sel_Engine", function(result){
 			sel_Engine = result;
-			EngineDataview();
 		})
 		.fail(function( jqxhr, textStatus, error ) {
 			var err = textStatus + ", " + error;
 			console.log( "Request Failed: " + err );
 		});
+		
+		$.getJSON("/sel_Account", function(result){
+			sel_Account = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		$.getJSON("/sel_Session", function(result){
+			sel_Session = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		$.getJSON("/sel_General_Symbol", function(result){
+			sel_General_Symbol = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		$.getJSON("/sel_Symbol_Sell", function(result){
+			sel_Symbol_Sell = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		$.getJSON("/sel_Symbol_Buy", function(result){
+			sel_Symbol_Buy = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		$.getJSON("/sel_Order_Details", function(result){
+			sel_Order_Details = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		$.getJSON("/sel_Order_Details_2", function(result){
+			sel_Order_Details_2 = result;
+		})
+		.fail(function( jqxhr, textStatus, error ) {
+			var err = textStatus + ", " + error;
+			console.log( "Request Failed: " + err );
+		});
+		
+		
+		
+			EngineDataview();
 	}
 	
 	
@@ -419,13 +483,13 @@
 	//App class declaration
 	App = function (options) {
 
-		EngineDataview();
+		//EngineDataview();
 		
 		
 		// 0.5s function 
-		//setInterval(function(){ 
-				//Engine_Data_read();
-		//}, 500);
+		setInterval(function(){ 
+				Engine_Data_read();
+		}, 500);
 		
 		hideSplashScreen();
 		createDataTables();
