@@ -401,77 +401,46 @@
 	
 	//function to getJSON  sel_Engine results	
 	Engine_Data_read = function (){
-		$.getJSON("/sel_Engine", function(result){
+	
+		$.post("/sel_Engine", function(result){
 			sel_Engine = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);
 		
-		$.getJSON("/sel_Account", function(result){
+		$.post("/sel_Account", function(result){
 			sel_Account = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
-		
-		
-		$.getJSON("/sel_Session", function(result){
+		},'json'
+		);
+			
+		$.post("/sel_Session", function(result){
 			sel_Session = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);
 		
-		
-		$.getJSON("/sel_General_Symbol", function(result){
+		$.post("/sel_General_Symbol", function(result){
 			sel_General_Symbol = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);
 		
-		
-		$.getJSON("/sel_Symbol_Sell", function(result){
+		$.post("/sel_Symbol_Sell", function(result){
 			sel_Symbol_Sell = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);
 		
-		
-		$.getJSON("/sel_Symbol_Buy", function(result){
+		$.post("/sel_Symbol_Buy", function(result){
 			sel_Symbol_Buy = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);	
 		
-		
-		$.getJSON("/sel_Order_Details", function(result){
+		$.post("/sel_Order_Details", function(result){
 			sel_Order_Details = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
+		},'json'
+		);
 		
-		$.getJSON("/sel_Order_Details_2", function(result){
+		$.post("/sel_Order_Details_2", function(result){
 			sel_Order_Details_2 = result;
-		})
-		.fail(function( jqxhr, textStatus, error ) {
-			var err = textStatus + ", " + error;
-			console.log( "Request Failed: " + err );
-		});
-		
-		
-		
+		},'json'
+		);
 			EngineDataview();
 	}
 	
