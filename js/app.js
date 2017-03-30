@@ -319,7 +319,7 @@
 		var table_str='';
 		// table td input data
 		for(var row=0;row<row_count;row++){
-			table_str +="<tr>";
+			table_str +="<tr class='accountContext'>";
 			for(var col=0;col<6;col++){
 				var str_val = sel_Account.results[0].data[row][col];
 				table_str +="<td>" + str_val + "</td>";
@@ -350,7 +350,7 @@
 		var table_str='';
 		// table td input data
 		for(var row=0;row<row_count;row++){
-			table_str +="<tr>";
+			table_str +="<tr  class='symbolContext'>";
 			for(var col=0;col<10;col++){
 				var str_val = sel_General_Symbol.results[0].data[row][col];
 				table_str +="<td>" + str_val + "</td>";
@@ -367,7 +367,7 @@
 		var table_str='';
 		// table td input data
 		for(var row=0;row<row_count;row++){
-			table_str +="<tr>";
+			table_str +="<tr  class='symbolContext'>";
 			for(var col=0;col<7;col++){
 				var str_val = sel_Symbol_Sell.results[0].data[row][col];
 				table_str +="<td>" + str_val + "</td>";
@@ -385,7 +385,7 @@
 		var table_str='';
 		// table td input data
 		for(var row=0;row<row_count;row++){
-			table_str +="<tr>";
+			table_str +="<tr class='symbolContext'>";
 			for(var col=0;col<7;col++){
 				var str_val = sel_Symbol_Buy.results[0].data[row][col];
 				table_str +="<td>" + str_val + "</td>";
