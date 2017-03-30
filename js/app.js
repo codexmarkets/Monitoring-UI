@@ -298,7 +298,7 @@
 	
 	
 	//function to EngineDataview results
-	EngineDataview = function () {
+	sel_Engineview = function () {
 		// sel_Engine to data count
 		var row_count = sel_Engine.results[0].data.length;
 		var table_str='';
@@ -313,6 +313,9 @@
 		}
 		$("table#matchEngineTable tbody tr").remove();
 		$("table#matchEngineTable tbody").html( table_str );
+	}
+		
+	sel_Accountview = function () {	
 		
 		// accounttable to data count
 		var row_count = sel_Account.results[0].data.length;
@@ -328,6 +331,11 @@
 		}
 		$("table#accountTable tbody tr").remove();
 		$("table#accountTable tbody").html( table_str );
+
+
+	}
+		
+	sel_Sessionview = function () {	
 		
 		// sel_Session to data count
 		var row_count = sel_Session.results[0].data.length;
@@ -343,6 +351,11 @@
 		}
 		$("table#sessionTable tbody tr").remove();
 		$("table#sessionTable tbody").html( table_str );
+
+
+	}
+		
+	sel_General_Symbolview = function () {	
 		
 		
 		// generalSymbolTable to data count
@@ -360,6 +373,11 @@
 		$("table#generalSymbolTable tbody tr").remove();
 		$("table#generalSymbolTable tbody").html( table_str );
 		
+
+
+	}
+		
+	sel_Symbol_Sellview = function () {	
 		
 		
 		// sel_Symbol_Sell to data count
@@ -377,6 +395,11 @@
 		$("table.symbolBookTableAA tbody tr").remove();
 		$("table.symbolBookTableAA tbody").html( table_str );
 		
+
+
+	}
+		
+	sel_Symbol_Buyview = function () {	
 		
 		
 		
@@ -402,46 +425,46 @@
 	//function to getJSON  sel_Engine results	
 	Engine_Data_read = function (){
 	
-		$.post("/sel_Engine", function(result){
+		$.getJSON("http://localhost:8081/sel_Engine", function(result){
 			sel_Engine = result;
-		},'json'
-		);
+			sel_Engineview();
+		});
 		
-		$.post("/sel_Account", function(result){
+		$.getJSON("http://localhost:8081/sel_Account", function(result){
 			sel_Account = result;
-		},'json'
-		);
+			sel_Accountview();
+		});
 			
-		$.post("/sel_Session", function(result){
+		$.getJSON("http://localhost:8081/sel_Session", function(result){
 			sel_Session = result;
-		},'json'
-		);
+			sel_Sessionview();
+		});
 		
-		$.post("/sel_General_Symbol", function(result){
+		$.getJSON("http://localhost:8081/sel_General_Symbol", function(result){
 			sel_General_Symbol = result;
-		},'json'
-		);
+			sel_General_Symbolview();
+		});
 		
-		$.post("/sel_Symbol_Sell", function(result){
+		$.getJSON("http://localhost:8081/sel_Symbol_Sell", function(result){
 			sel_Symbol_Sell = result;
-		},'json'
-		);
+			sel_Symbol_Sellview();
+		});
 		
-		$.post("/sel_Symbol_Buy", function(result){
+		$.getJSON("http://localhost:8081/sel_Symbol_Buy", function(result){
 			sel_Symbol_Buy = result;
-		},'json'
-		);	
+			sel_Symbol_Buyview();
+		});	
 		
-		$.post("/sel_Order_Details", function(result){
-			sel_Order_Details = result;
-		},'json'
-		);
+		//$.getJSON("http://localhost:8081/sel_Order_Details", function(result){
+		//	sel_Order_Details = result;
+		//	sel_Order_Detailsview();
+		//});
 		
-		$.post("/sel_Order_Details_2", function(result){
-			sel_Order_Details_2 = result;
-		},'json'
-		);
-			EngineDataview();
+		//$.post("http://localhost:8081/sel_Order_Details_2", function(result){
+			//sel_Order_Details_2 = result;
+			//sel_Order_Details_2view();
+		//});
+			
 	}
 	
 	
@@ -457,8 +480,8 @@
 		
 		// 0.5s function 
 		setInterval(function(){ 
-				Engine_Data_read();
-		}, 500);
+	                Engine_Data_read();
+		}, 5500);
 		
 		hideSplashScreen();
 		createDataTables();
