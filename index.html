@@ -1,0 +1,576 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Eric Zhang UI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- default css files to reset the HTML document to default behaviour and plugins css -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="css/bootstrap-modal.css">
+        <link rel="stylesheet" href="css/jquery.contextMenu.css">
+        
+        <!-- custom css files -->
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- library to detect users browser features -->
+        <script src="js/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+
+    <!--Start Splash Screen Area -->
+    <div class="wrapper home-bg splashScreenContainer">
+        <div class="container">
+        <div class="spashScreen">
+            <h1>Codex Markets ...</h1>
+            <div class="logo-container">
+                <img src="images/logo.png" alt=""/><span>an ocean of possibility </span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--End Splash Screen Area -->
+
+    <!-- Start views -->
+    <div class="container views hide">
+        <!--Start header navigation buttons -->
+
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">file</a>
+                        <ul>
+                            <li><a href="javascript:void(0)">Save Layout</a></li>
+                            <li><a href="javascript:void(0)">Save Layout As</a></li>
+                            <li><a href="javascript:void(0)">Import Layout</a></li>
+                            <li><a href="javascript:void(0)">Print</a></li>
+                            <li><a href="javascript:void(0)">Exit</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Filters</a>
+                        <ul>
+                            <li><a href="javascript:void(0)">Add Client Filter</a></li>
+                            <li><a href="javascript:void(0)">Add Symbol Filter</a></li>
+                            <li><a href="javascript:void(0)">Add Engine Filter</a></li>
+                            <li><a href="javascript:void(0)">Order State ></a>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Open</a></li>
+                                    <li><a href="javascript:void(0)">Filled</a></li>
+                                    <li><a href="javascript:void(0)">Pending New</a></li>
+                                    <li><a href="javascript:void(0)">Pending Cancel</a></li>
+                                    <li><a href="javascript:void(0)">Unacknowledged</a></li>
+                                    <li><a href="javascript:void(0)">Rejected</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-toggle="modal" data-target="#manageFiltersModal">Manage Filters</a></li>
+                            <li><a href="javascript:void(0)">Import Filters</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Views</a>
+                        <ul>
+                            <li><a href="javascript:void(0)" class="showView activeViewLink" data-view="matchingEngineView">Matching Engine</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="accountView">Account</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="sessionView">Session</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="generalSymbolView">General Symbol</a></li>
+                            <li><a href="javascript:void(0)" class="showView" data-view="symbolBookView">Symbol Book</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="cancel">
+                <a href="" class="btn-grey">Exit</a>
+            </div>
+
+        </header>
+        <!--End header navigation buttons -->
+
+        <!--Start Matching Engine View and Table-->
+        <div class="table-content matchingEngineView activeView">
+            <div class="heading">
+                <h2>Matching Engine View</h2>
+            </div>
+            <table id="matchEngineTable" class="tableStyle tblDataTable">
+                <thead>
+                    <tr>
+                        <th>engine</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>rate</th>
+                        <th>pending new</th>
+                        <th>pending cxl</th>
+                        <th>fills</th>
+                        <th>shares</th>
+                        <th>Notional</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>engine</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>rate</th>
+                        <th>pending new</th>
+                        <th>pending cxl</th>
+                        <th>fills</th>
+                        <th>shares</th>
+                        <th>Notional</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <!--End Matching Engine View and Table-->
+
+        <!--Start Account View and Table-->
+        <div class="table-content accountView hide">
+            <div class="heading">
+                <h2>Account View</h2>
+            </div>
+            <table id="accountTable" class="tableStyle tblDataTable">
+                <thead class="sticky1">
+                    <tr>
+                        <th>Account</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>open exposures</th>
+                        <th>shares executed</th>
+                        <th>Notional executed</th>
+                    </tr>
+                </thead>
+                <tfoot class="sticky2">
+                    <tr>
+                        <th>Account</th>
+                        <th>Total orders</th>
+                        <th>open</th>
+                        <th>open exposures</th>
+                        <th>shares executed</th>
+                        <th>Notional executed</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <!--End Account View and Table-->
+
+        <!--Start Session View and Table-->
+        <div class="table-content sessionView hide">
+            <div class="heading">
+                <h2>Session View</h2>
+            </div>
+            <table id="sessionTable" class="tableStyle tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Status</th>
+                        <th>IP</th>
+                        <th>Port</th>
+                        <th>TargetCompID</th>
+                        <th>SenderCompID</th>
+                        <th>Server</th>
+                        <th>LastUpdate</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Status</th>
+                        <th>IP</th>
+                        <th>Port</th>
+                        <th>TargetCompID</th>
+                        <th>SenderCompID</th>
+                        <th>Server</th>
+                        <th>LastUpdate</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <!--End Session View and Table-->
+
+        <!--Start General Symbol View and Table-->
+        <div class="table-content generalSymbolView hide">
+            <div class="heading">
+                <h2>General Symbol View</h2>
+            </div>
+            <table id="generalSymbolTable" class="tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Symbol</th>
+                        <th>State</th>
+                        <th>Side</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Symbol</th>
+                        <th>State</th>
+                        <th>Side</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+					
+                </tbody>
+            </table>
+        </div>
+        <!--End General Symbol View and Table-->
+
+        <!--Start Symbol Book View and Table-->
+        <div class="table-content symbolBookView hide">
+            <div class="heading">
+                <h2>Symbol Book View</h2>
+            </div>
+            <p>Sell</p>
+            <table id="symbolBookTableA" class="symbolBookTableAA tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </tfoot>
+                <tbody>
+                    <tr><td>1<td></tr>
+                </tbody>
+            </table>
+            <p class="buyP">Buy</p>
+            <table id="symbolBookTableA" class="symbolBookTableBB tableStyle tableStyleHeight tblDataTable">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Row</th>
+                        <th>Timestamp</th>
+                        <th>OrderID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Account</th>
+                        <th>MinQuantity</th>
+                </tfoot>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <!--End Symbol Book View and Table-->
+
+    </div>
+    <!-- End views -->
+
+    <!-- start manage filters modal -->
+    <div class="modal fade" id="manageFiltersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-header">
+            
+            <h4 class="modal-title" id="myModalLabel">Manage Filters</h4>
+          </div>
+          <form>
+          <div class="modal-body">
+        <span>show order where</span>
+        <div class="btnHold">
+            <button class="btn-grey" data-toggle="modal" data-target="#addSimpleFilterModal">add simple filter</button>
+            <button class="btn-grey">add custom filter</button>
+        </div>
+        
+        <div class="tbleHold">
+            <table border="collapse" width="100%">
+                <tbody>
+                    <tr>
+                        <td width="80%"><input class="table-hedsmll" value=""></td>
+                        <td width="10%"><a href="#">edit</a></td>
+                        <td width="10%"><a href="#">delete</a></td>
+                    </tr>
+                    <tr>
+                        <td width="80%"><input class="table-hedsmll" value=""></td>
+                        <td width="10%"><a href="#">edit</a></td>
+                        <td width="10%"><a href="#">delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-grey pull-left">create filter</button> &nbsp
+            <button type="reset" class="btn-grey pull-right">reset filter</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End manage filters modal -->
+
+    <!--Start add simple filters modal -->
+    <div class="modal fade" id="addSimpleFilterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="myModalLabel">add new simple filter</h4>
+                </div>
+                <form>
+                <div class="modal-body">
+                    <span>show order where</span>
+                    <div class="form">
+                        
+                            <label>client</label>
+                            <div class="inputHold">
+                                <select>
+                                    <option>relational operator</option>
+                                </select>
+                            </div>
+                            <div class="inputHold">
+                                <input type="text">
+                            </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-grey pull-left">create filter</button>
+                    <button type="reset" class="btn-grey pull-right">reset filter</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--End add simple filters modal -->
+
+    <!-- Start Charting Modal -->
+
+    <div class="modal fade modal-xl" id="chartingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <div class="modal-header">
+                
+              </div>
+              <div class="modal-body table-div">
+                <p class="line"><span>Viking</span></p>
+                <div class="table col-1">
+
+                    <div class="cell">
+                        <label>Vertical Axis</label>
+                        <select>
+                            <option>options</option>
+                        </select>
+                    </div>
+                    <div class="cell lineChart" id="lineChart" style="display:none;">
+                        
+                    </div>
+                    <div class="cell barChart" id="barChart" style="display:none;">
+                        
+                    </div>
+                    <div class="cell">
+                        <label>Vertical Axis</label>
+                        <select>
+                            <option>options</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                
+              </div> 
+          </div>
+    </div>
+
+    <!-- End Charting Modal -->
+
+    <!-- Start View Details Modal -->
+
+    <div class="modal fade modal-xl" id="viewDetailsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                    <div class="row30">
+                        <div class="col-6 rightBrdr">
+                            <div class="greenBox">
+                                <div class="tableCell">
+                                    Account: CLIENT1 <br>
+                                    Order id: 123456<br>
+                                    Percent Complete: 20%<br>
+                                </div>
+                                <div class="tableBorder">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                            <tr>
+                                                <td>New</td>
+                                                <td>10 00 00 123456</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 leftBrdr padding-default">
+                            <div class="tableBorder">
+                                <table>
+                                    <thead>
+                                        <tr><td>order ID</td><td>123456</td></tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New</td>
+                                            <td>10 00 00 123456</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    <!-- End View Details Modal -->
+
+    <!-- Start Rejection Modal -->
+
+    <div class="modal fade modal-small" id="rejectionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <p class="line"><span>Reject</span> by <span>Client</span></label>
+                    <div class="form">
+                        <form>
+                            <div class="">
+                                 <select>
+                                     <option>relational operator</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-grey pull-left">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Rejection Modal -->
+
+    <!-- External js files -->
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.position.min.js"></script>
+    
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+var sel_Engine = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ENGINE","type":9},{"name":"TOTAL_ORDERS","type":5},{"name":"OPEN","type":5},{"name":"RATE","type":5},{"name":"PENDING_NEW","type":5},{"name":"PENDING_CXL","type":5},{"name":"FILLS","type":5},{"name":"SHARES","type":5},{"name":"NOTIONAL","type":8}],"data":[["Eng1 (A-K) 10.10.10.1",24238,283,10,0,0,1566,10462100,3.36251894E8],["Eng2 (L-Z) 10.10.10.2",32147,402,17,0,0,1822,16078400,5.16759776E8]]}]};
+var sel_Account = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ACCOUNT_NAME","type":9},{"name":"TOTAL_ORDERS","type":5},{"name":"OPEN_ORDERS","type":5},{"name":"OPEN_EXPOSURES","type":8},{"name":"SHARES_EXECUTED","type":5},{"name":"NOTIONAL_EXECUTED","type":8}],"data":[["P72",24238,283,1.0323318752E8,10462100,3.36251894E8],["Milly",32147,402,866142,16078400,5.16759776E8],["WQ",4897,26,0,10000,340100],["Viking",30201,2382,9.282316687E7,860000,2.92486E7]]}]};
+var sel_Session = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"CLIENT_ID","type":9},{"name":"STATUS","type":9},{"name":"IP","type":9},{"name":"PORT","type":9},{"name":"TARGETCOMPID","type":9},{"name":"SENDERCOMPID","type":9},{"name":"SERVER","type":9},{"name":"LASTUPDATE","type":11}],"data":[["P72","Connected","192.168.1.1","55621","POINT72CDX","CDXP72","10.10.10.10:10501",1490601600000000],["Milly","Disconnected","-","-","MILLPCDX","CDXMP","10.10.10.11:10502",1490608261000000],["WQ","Connected","192.168.1.11","41504","WORLDCDXX","CDXWQ","10.10.10.10:10504",1490604300000000]]}]};
+var sel_General_Symbol = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ROW_ID","type":5},{"name":"ROW_TIMESTAMP","type":11},{"name":"ORDERID","type":5},{"name":"SYMBOL","type":9},{"name":"STATE","type":9},{"name":"SIDE","type":9},{"name":"QUANTITY","type":5},{"name":"PRICE","type":8},{"name":"ACCOUNT","type":9},{"name":"MINQUANTITY","type":5}],"data":[[1,1490607004345678,418,"GOOG","Open","B",41287,820,"P72",5000],[2,1490607191798654,313,"AAPL","Open","S",47779,135.46,"P72",5000],[3,1490608029114630,366,"MSFT","Open","S",13580,64.17,"P72",5000],[4,1490608690125829,248,"GOOG","Filled","S",17810,829.84,"P72",2000],[5,1490609310378566,348,"GOOG","Open","S",24262,773.86,"P72",5000],[6,1490609948554427,24,"GOOG","Open","S",19702,831.3,"P72",1000],[7,1490610755387754,441,"MSFT","Canceled","S",48576,66.05,"P72",5000]]}]};
+var sel_Symbol_Sell = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ROW_ID","type":5},{"name":"ROW_TIMESTAMP","type":11},{"name":"ORDERID","type":5},{"name":"QUANTITY","type":5},{"name":"PRICE","type":8},{"name":"ACCOUNT","type":9},{"name":"MINQUANTITY","type":5}],"data":[[1,1490607004345678,418,41287,827,"P72",5000],[2,1490607191798654,313,47779,826,"P72",5000],[3,1490608029114630,366,13580,825,"P72",5000],[4,1490608690125829,248,17810,824,"P72",2000],[5,1490609310378566,348,24262,822,"P72",5000],[6,1490609948554427,24,19702,821,"P72",1000],[7,1490610755387754,441,48576,820.5,"P72",5000]]}]};
+var sel_Symbol_Buy = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ROW_ID","type":5},{"name":"ROW_TIMESTAMP","type":11},{"name":"ORDERID","type":5},{"name":"QUANTITY","type":5},{"name":"PRICE","type":8},{"name":"ACCOUNT","type":9},{"name":"MINQUANTITY","type":5}],"data":[[1,1490607004345678,418,41287,820,"P72",5000],[2,1490607191798654,313,47779,819,"P72",5000],[3,1490608029114630,366,13580,818,"P72",5000],[4,1490608690125829,248,17810,817,"P72",2000],[5,1490609310378566,348,24262,816,"P72",5000],[6,1490609948554427,24,19702,815,"P72",1000],[7,1490610755387754,441,48576,814,"P72",5000]]}]};
+var sel_Order_Details = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"NEW","type":11},{"name":"ACK","type":11},{"name":"FILL","type":11},{"name":"PENDINGCXL","type":11},{"name":"UROUT","type":11}],"data":[[1490608800123456,1490608800123462,1490608802123456,1490610600000000,1490626800000322]]}]};
+var sel_Order_Details_2 = {"status":1,"appstatus":-128,"statusstring":null,"appstatusstring":null,"results":[{"status":-128,"schema":[{"name":"ORDERID","type":5},{"name":"SYMBOL","type":9},{"name":"SIDE","type":9},{"name":"PRICE","type":8},{"name":"QUANTITY","type":5},{"name":"ACCOUNT","type":9},{"name":"TIMESTAMP","type":11},{"name":"MINQTY","type":5},{"name":"MAXFLOOR","type":5},{"name":"FIRM","type":9}],"data":[[123456,"MSFT","Buy",63.4,10000,"CLIENT1",1490608800123345,2000,5000,"ABCD"]]}]};
+		
+        $(document).ready(function(){
+
+            var app = new App();
+
+        });
+    </script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+    
+    </body>
+</html>
