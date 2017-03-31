@@ -397,6 +397,56 @@
 		
 		
 		
+		// sel_Order_Details to data count
+		var row_count = sel_Order_Details.results[0].schema.length;
+		var table_str='';
+		// table td input data
+		for(var row=0;row<row_count;row++){
+			table_str +="<tr>";
+				var str_val = sel_Order_Details.results[0].data[0][row];
+				var str_name = sel_Order_Details.results[0].schema[row].name;
+				table_str +="<td>" + str_name + "</td>";
+				table_str +="<td>" + str_val + "</td>";
+			table_str +="</tr>";			
+		}
+		$("table.sel_Order_Details tbody tr").remove();
+		$("table.sel_Order_Details tbody").html( table_str );
+		
+		
+		
+		
+		// sel_Order_Details1 to data count
+		var row_count = sel_Order_Details_2.results[0].schema.length;
+		
+		var table_str='';
+		// table td input data
+		for(var row=1;row<row_count;row++){
+			table_str +="<tr>";
+				var str_val = sel_Order_Details_2.results[0].data[0][row];
+				var str_name = sel_Order_Details_2.results[0].schema[row].name;
+				table_str +="<td>" + str_name + "</td>";
+				table_str +="<td>" + str_val + "</td>";
+			table_str +="</tr>";			
+		}
+		$("table.sel_Order_Details1 tbody tr").remove();
+		$("table.sel_Order_Details1 tbody").html( table_str );
+	
+		var table_str='';
+		// table td input data
+			table_str +="<tr>";
+				var str_val = sel_Order_Details_2.results[0].data[0][0];
+				var str_name = sel_Order_Details_2.results[0].schema[0].name;
+				table_str +="<td>" + str_name + "</td>";
+				table_str +="<td>" + str_val + "</td>";
+			table_str +="</tr>";			
+		
+		$("table.sel_Order_Details1 thead tr").remove();
+		$("table.sel_Order_Details1 thead").html( table_str );
+	
+	
+	
+	
+	
 	}
 	
 	//function to getJSON  sel_Engine results	
